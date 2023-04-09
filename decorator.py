@@ -3,25 +3,24 @@ from __future__ import annotations
 from functools import partial
 from typing import Callable, Union
 
-from core import try_exc_else_finally
+from core import tryexcept
 
 
-class TryExcept:
+class TryExceptDecorator:
     def __init__(
         self,
         except_handler              :Callable = lambda: None,
         except_handler_args         :tuple = (),
         except_handler_kwargs       :dict = {},
         exception_type              :Union[Exception, tuple[Exception]] = Exception,
-        exception_log               :bool=True,
-        reraise                     :bool = False,
+        exception_log               :bool=True
         ):
+
         self.except_handler = except_handler
         self.except_handler_args = except_handler_args
         self.except_handler_kwargs = except_handler_kwargs
         self.exception_type = exception_type
         self.exception_log = exception_log
-        self.reraise = reraise
 
     @property
     def config(self):
@@ -31,7 +30,6 @@ class TryExcept:
             "except_handler_kwargs": self.except_handler_kwargs,
             "exception_type": self.exception_type,
             "exception_log": self.exception_log,
-            "reraise": self.reraise
         }
 
         return config
@@ -40,7 +38,7 @@ class TryExcept:
         def wrapper(*func_args, **func_kwargs):
             kwargs_ = {**self.config, **kwargs}
 
-            result = try_exc_else_finally(
+            result = tryexcept(
                 handled_callable=           func,
                 handled_callable_args=      func_args,
                 handled_callable_kwargs=    func_kwargs,
@@ -57,5 +55,6 @@ class TryExcept:
 
         else:
             return decorator
-        
-tryexcept = TryExcept()
+
+
+decorator = TryExceptDecorator()

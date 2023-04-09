@@ -1,58 +1,33 @@
-Exception Handler Decorator
+# TryExcept decorator
 
-The Exception Handler Decorator is a Python decorator that wraps a function around a try-except statement.
-It allows you to write cleaner code in your functions where an exception may happen and you want to handle it.
+The TryExcept Decorator is a configurable Python decorator that wraps a function around a try-except statement.
+It allows you to write cleaner code in your functions where an exception may happen and you want to handle it even in complex ways.
 
 Installation
 To install the handle_exceptions decorator, simply run the following command:
 
 ```pip install tryexcept```
 
-Usage
+# Usage
 
-To use the handle_exceptions decorator, simply apply it to any function that may raise an exception.
+To use the tryexcept decorator, simply apply it to any function that may raise an exception.
 
-Here's an example for the simplest usage:
+Here's an example:
 
-```
-import requests
-from tryexcept import tryexcept
-
-# Use the decorator to handle exceptions in the get_data() function
-@tryexcept
-def get_data(url):
-    # Fetch data from the API
-    response = requests.get(url)
-    # Raise an exception if the response is not successful
-    response.raise_for_status()
-    # Return the response data
-    return response.json()
+```python
+https://github.com/davidedigrande/tryexcept-decorator/blob/main/setup.py
 ```
 
-You can customize how the handler behaves by instantiating an object with your parameters:
-
+Output:
 ```
-import requests
-from tryexcept import tryexcept
-
-def my_custom_exception_handling_function(argument1, argument2):
-    return 
-
-tryexcept = tryexcept(
-        except_handler=my_custom_exception_handling_function,
-        except_handler_kwargs=my_custom_exception_handling_function_arguments,
-        exception_type=(ProxyError, SSLError),
-)
-
-# then you can use it normally as decorator
-@tryexcept
-def get_data(url):
-    # Fetch data from the API
-    response = requests.get(url)
-    # Raise an exception if the response is not successful
-    response.raise_for_status()
-    # Return the response data
-    return response.json()
+Available local variables in the callee namespace at the moment of exception: 
+ {
+ "url": "http://example.com/nonexistentpage.html",
+ "response": "<Response [404]>"
+}
+The exception raised was of type <class 'requests.exceptions.HTTPError'>
+Custom exception handler error message: An error occurred! See exception below.
+{'exc': HTTPError('404 Client Error: Not Found for url: http://example.com/nonexistentpage.html'), 'url': 'http://example.com/nonexistentpage.html', 'response': <Response [404]>, 'message': 'An error occurred! See exception below.'}
 
 ```
 

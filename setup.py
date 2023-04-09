@@ -1,13 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='tryexcept',
-    version='0.1',
+    name='tryexcept-decorator',
+    version='0.1.1',
     packages=find_packages(),
-    install_requires=[
-        'numpy',
-        'pandas'
-    ],
+    install_requires=[],
     author='Davide Di Grande',
     author_email='davidedigrande.dev@gmail.com',
     description='See README',
