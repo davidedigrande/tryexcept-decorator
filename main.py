@@ -22,9 +22,9 @@ def get_data(url):
     response.raise_for_status()
     return response.json()
 
-result = get_data(url = "http://example.com/nonexistentpage.html")
-
-print(result)
+def main():
+    result = get_data(url = "http://example.com/nonexistentpage.html")
+    print(result)
 
 if __name__ == "__main__":
-    pass
+    main()
