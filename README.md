@@ -14,7 +14,7 @@ To use the tryexcept decorator, simply apply it to any function that may raise a
 
 Here's an example:
 
-https://github.com/davidedigrande/tryexcept-decorator/blob/bb31bb98770ce7d08c5d29a9fc3d9de303137613/main.py
+https://github.com/davidedigrande/tryexcept-decorator/blob/b36b2ff221119411df1472eaa31f7c75a9fc5446/main.py#L1-L30
 
 Output:
 ```
