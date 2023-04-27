@@ -1,4 +1,4 @@
-from tryexcept import tryexcept
+from __init__ import tryexcept
 import requests
 from requests import HTTPError
 import json
@@ -10,13 +10,9 @@ def my_custom_exception_handling_function(f_exc:Exception, f_locals:dict, f_name
     print(f"The exception raised was of type {type(f_exc)}")
     return {"exc":f_exc, **f_locals, "message":message}
 
-@tryexcept(
-        except_handler=my_custom_exception_handling_function,
-        except_handler_kwargs={
-            "message":"An error occurred! See exception below."
-            },
-        exception_type=HTTPError,
-)
+mytryexc = tryexcept(exception_type=HTTPError)
+
+@mytryexc
 def get_data(url):
     response = requests.get(url)
     response.raise_for_status()
