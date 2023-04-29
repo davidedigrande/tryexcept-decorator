@@ -6,7 +6,7 @@ It allows you to write cleaner code in your functions where an exception may hap
 Installation
 To install the handle_exceptions decorator, simply run the following command:
 
-```pip install tryexcept```
+```pip install tryexcept-decorator```
 
 # Usage
 
