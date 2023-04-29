@@ -117,5 +117,3 @@ class TryExceptDecorator:
         wrapper = TryExceptDecorator.decorator(**_kwargs)
 
         return wrapper 
-    
-decorator = TryExceptDecorator

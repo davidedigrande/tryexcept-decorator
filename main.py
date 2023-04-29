@@ -1,4 +1,4 @@
-from __init__ import tryexcept
+from tryexcept_decorator import tryexcept
 import requests
 from requests import HTTPError
 import json

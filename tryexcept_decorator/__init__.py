@@ -1,0 +1,1 @@
+from .decorator import TryExceptDecorator as tryexcept
