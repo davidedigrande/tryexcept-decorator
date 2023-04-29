@@ -10,7 +10,10 @@ def my_custom_exception_handling_function(f_exc:Exception, f_locals:dict, f_name
     print(f"The exception raised was of type {type(f_exc)}")
     return {"exc":f_exc, **f_locals, "message":message}
 
-mytryexc = tryexcept(exception_type=HTTPError)
+mytryexc = tryexcept(
+    exception_type=HTTPError,
+    except_handler=my_custom_exception_handling_function,
+    except_handler_kwargs={"message": "There was an error!"})
 
 @mytryexc
 def get_data(url):
