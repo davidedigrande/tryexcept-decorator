@@ -3,8 +3,9 @@
 The TryExcept Decorator is a configurable Python decorator that wraps a function around a try-except statement.
 It allows you to write cleaner code in your functions where an exception may happen and you want to handle it even in complex ways.
 
-Installation
-To install the handle_exceptions decorator, simply run the following command:
+# Installation
+
+To install the tryexcept decorator, simply run the following command:
 
 ```pip install tryexcept-decorator```
 
@@ -29,9 +30,16 @@ Custom exception handler error message: An error occurred! See exception below.
 
 ```
 
-In this example, the get_data() function uses the requests library to fetch data from a hypothetical API. The handle_exceptions decorator is applied to the get_data() function to handle any exceptions that might occur during the API request.
+In this example, the get_data() function uses the requests library to fetch data from a hypothetical API. The tryexcept decorator is applied to the get_data() function to handle any exceptions that might occur during the API request.
 
 If an exception is raised, the decorator catches it and returns an error message to the user in a dictionary format. If no exception is raised, the decorator simply returns the response data in JSON format. This allows the application to gracefully handle any exceptions that might occur during the API request, without crashing or disrupting the user experience.
+
+As you can see from the example you can have access to useful info in your exception-handling function, by getting them from the handled function with optional reserved keywords:
+
+f_exc, will be the raised exception.
+f_locals, will be a dict with the decorated function's variables that are available in its namespace at the moment of the exception.
+f_name, the name of the decorated function.
+
 
 Contributing
 If you'd like to contribute to the handle_exceptions decorator, feel free to submit a pull request on the GitHub repository.
